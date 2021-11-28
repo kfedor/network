@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class PC {
 
     private UUID id;
-    public ArrayList<Cable> cables = new ArrayList<>();
+    ArrayList<Cable> cables = new ArrayList<>();
 
     public PC(UUID id) {
         this.id = id;
