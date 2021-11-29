@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -22,20 +23,21 @@ public class Application {
         c3.connect(pc3, pc4);
         c4.connect(pc4, pc1);
 
-        recursion(pc1, new HashSet<>());
+        print(pc1, new HashSet<>());
+
     }
 
-    private static void recursion(PC current, Set<PC> visited) {
+    private static void print(PC current, Set<PC> visited) {
         System.out.println("Current PC: " + current.getId());
 
-        if(visited.contains(current)){
+        if (visited.contains(current)) {
             System.out.println("В этой точке мы уже были");
             return;
         }
 
         visited.add(current);
 
-        ArrayList<Cable> cables = current.getCables();
+        List<Cable> cables = current.getCables();
 
         for (Cable cable : cables) {
             if (cable == null) {
@@ -44,7 +46,7 @@ public class Application {
 
             PC another = cable.getAnother(current);
             System.out.println("Current: " + current.getId() + "; Another: " + another.getId());
-            recursion (current, visited);
+            print(another, visited);
         }
     }
 }

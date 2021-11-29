@@ -1,24 +1,21 @@
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
 public class PC {
 
     private UUID id;
-    ArrayList<Cable> cables = new ArrayList<>();
+    List<Cable> cables = new ArrayList<>();
 
     public PC(UUID id) {
         this.id = id;
     }
 
     public void plugIn(Cable cable) {
-        cables.add(0, cable);
+        cables.add(cable);
     }
 
         @Override
